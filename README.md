@@ -11,6 +11,12 @@ Welcome to 2Do! My submission for the Senior Software Engineer role with the NHS
 - Complete and delete multiple items on your list with 'Edit mode'.
 - Lists are saved to local storage whenever an item is added, deleted, or updated.
 
+## Design
+
+2Do uses the colour scheme [Dark Sunset](https://coolors.co/palette/335c67-fff3b0-e09f3e-9e2a2b-540b0e).
+
+The teal colour #335C67 should be used as the **primary** colour for UI elements. The light yellow #FFF3B0 should be used as an **accent** where it will not impede on accessibility. Lastly, for any other UI that is required to **contrast** the primary colour, the crimson #9E2A2B should be used.
+
 ## Running locally
 
 There are two methods available for running this app locally. Details on each one are written below:
@@ -46,6 +52,6 @@ The app was created by converting decaf tea and lo-fi beats into code.
 
 ## Contributors
 
-👩‍💻 Katie Adams, Engineer
-🐶 Moose the dog, Moral Support
-😼 Bucket the cat, Keyboard Warmer
+- 👩‍💻 Katie Adams, Engineer
+- 🐶 Moose the dog, Moral Support
+- 😼 Bucket the cat, Keyboard Warmer
