@@ -17,7 +17,7 @@ function App() {
 			</header>
 
 			<main>
-				<div className="flexBox">{/* Form goes here with inputs */}</div>
+				<div className="flexBox ">{/* Form goes here with inputs */}</div>
 				<div className="flexBox">{/* Filter and sort buttons goes here */}</div>
 				<div className="flexBox">
 					Cards go here
