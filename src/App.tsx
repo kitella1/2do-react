@@ -23,7 +23,7 @@ function App() {
 			<div className="card">
 				<button onClick={() => dispatch(increment())}>count is {count}</button>
 				<button onClick={() => dispatch(decrement())}>Reduce count</button>
-				<p>
+				<p className="text-3xl font-bold underline">
 					Edit <code>src/App.tsx</code> and save to test HMR
 				</p>
 			</div>
