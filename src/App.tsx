@@ -1,30 +1,39 @@
 import twoDoLogo from "./assets/logo.png";
-import "./App.css";
 
 function App() {
 	return (
 		<>
-			<header>
+			<header className="w-full flex flex-col">
 				<img
 					data-testid="logo"
 					src={twoDoLogo}
 					id="logo"
 					alt="the 2Do app logo, pronounced phonetically as To Do"
+					className="max-w-32 md:max-w-40 lg:max-w-64 transition-transform ease-out duration-200 hover:scale-105"
 				/>
 				<h1 data-testid="title" id="title">
 					Organize your day...
 				</h1>
 			</header>
 
-			<main>
-				<div className="flexBox ">{/* Form goes here with inputs */}</div>
-				<div className="flexBox">{/* Filter and sort buttons goes here */}</div>
-				<div className="flexBox">
+			<main className="flex flex-col w-full gap-1">
+				<div className="w-full min-h-10 flex flex-col bg-red-500">
+					{/* Form goes here with inputs */}
+				</div>
+				<div className="w-full min-h-10 flex flex-col bg-amber-300">
+					{/* Filter and sort buttons goes here */}
+				</div>
+				<div className="w-full min-h-10 flex flex-col bg-green-900">
 					Cards go here
 					{/* TODO: Make cardsContainer with overflow rules */}
 				</div>
 			</main>
-			<footer data-testid="footer">Developed by Katie Adams, 2025</footer>
+			<footer
+				data-testid="footer"
+				className="text-xs italic fixed text-white/50 bottom-0 min-h-16"
+			>
+				Developed by Katie Adams, 2025
+			</footer>
 		</>
 	);
 }
