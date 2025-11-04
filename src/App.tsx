@@ -6,6 +6,7 @@ function App() {
 		<>
 			<header>
 				<img
+					data-testid="logo"
 					src={twoDoLogo}
 					id="logo"
 					alt="the 2Do app logo, pronounced phonetically as To Do"
@@ -23,7 +24,7 @@ function App() {
 					{/* TODO: Make cardsContainer with overflow rules */}
 				</div>
 			</main>
-			<footer>Developed by Katie Adams, 2025</footer>
+			<footer data-testid="footer">Developed by Katie Adams, 2025</footer>
 		</>
 	);
 }
