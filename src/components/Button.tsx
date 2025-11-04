@@ -30,6 +30,7 @@ export default function Button({
 			}
 			role={role}
 			onClick={clickHandler}
+			data-testid="button"
 		>
 			{text}
 		</button>
