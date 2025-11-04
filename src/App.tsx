@@ -1,7 +1,14 @@
 import twoDoLogo from "./assets/logo.png";
+import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 
 function App() {
+	const bookTitles = [
+		"Pride and Prejudice",
+		"Jurassic Park",
+		"Dune",
+		"How to Train Your Dragon",
+	];
 	return (
 		<>
 			<header className="w-full flex flex-col gap-y-2">
@@ -21,6 +28,7 @@ function App() {
 				<div className="w-full min-h-10 flex flex-col gap-6">
 					{/* Form goes here with inputs */}
 					<Input label="Input label" />
+					<Dropdown label="Dropdown label" options={bookTitles} />
 				</div>
 				<div className="w-full min-h-10 flex flex-col bg-amber-300">
 					{/* Filter and sort buttons goes here */}
