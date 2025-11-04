@@ -1,6 +1,7 @@
 import twoDoLogo from "./assets/logo.png";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
+import ListItem from "./components/ListItem";
 
 function App() {
 	const bookTitles = [
@@ -34,7 +35,10 @@ function App() {
 					{/* Filter and sort buttons goes here */}
 				</div>
 				<div className="w-full min-h-10 flex flex-col bg-green-900">
-					Cards go here
+					<ListItem
+						id="list-item-1"
+						text="I am a list item with a thing to do"
+					/>
 					{/* TODO: Make cardsContainer with overflow rules */}
 				</div>
 			</main>
