@@ -1,11 +1,7 @@
 import twoDoLogo from "./assets/logo.png";
-import Button from "./components/Button";
+import Input from "./components/Input";
 
 function App() {
-	function windowAlert() {
-		window.alert("Hello world!");
-	}
-
 	return (
 		<>
 			<header className="w-full flex flex-col gap-y-2">
@@ -24,14 +20,7 @@ function App() {
 			<main className="flex flex-col w-full gap-1">
 				<div className="w-full min-h-10 flex flex-col gap-6">
 					{/* Form goes here with inputs */}
-					<Button
-						text="Hello World"
-						style="primary"
-						role="button"
-						clickHandler={windowAlert}
-					/>
-					<Button text="Hello Again" style="accent" role="button" />
-					<Button text="Warning" style="warning" role="button" />
+					<Input label="Input label" />
 				</div>
 				<div className="w-full min-h-10 flex flex-col bg-amber-300">
 					{/* Filter and sort buttons goes here */}
