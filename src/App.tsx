@@ -3,7 +3,7 @@ import twoDoLogo from "./assets/logo.png";
 function App() {
 	return (
 		<>
-			<header className="w-full flex flex-col">
+			<header className="w-full flex flex-col gap-y-2">
 				<img
 					data-testid="logo"
 					src={twoDoLogo}
