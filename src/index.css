@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 /* 
-This file is for global styles, and styling that should be shared across elements/components.
-For example, all h1 tags should look the same.
-All individual styling should be manage in the component with tailwind.
+	This file is for global styles, and styling that should be shared across elements/components.
+	For example, all h1 tags should look the same.
+	All individual styling should be manage in the component with tailwind.
 */
 
 @theme {
-	--colour-primary: #335c67;
-	--colour-primary-accent: #fff3b0;
-	--colour-primary-red: #9e2a2b;
-	--colour-secondary-accent: #e09f3e;
-	--colour-secondary-red: #540b0e;
+	--color-primary-blue: #335c67;
+	--color-primary-accent: #fff3b0;
+	--color-primary-red: #9e2a2b;
+	--color-secondary-blue: #437889;
+	--color-secondary-accent: #e09f3e;
+	--color-secondary-red: #540b0e;
 }
 
 :root {
