@@ -30,10 +30,9 @@ describe("utils.test.tsx", () => {
 	});
 	describe("removeDuplicatesFromArray", () => {
 		it("different arrays", () => {
-			const arr1 = ["Hello", "world"];
-			const arr2 = ["Goodbye", "friends"];
+			const arr1 = ["Hello", "world", "Goodbye", "friends"];
 
-			expect(removeDuplicatesFromArray(arr1, arr2)).toStrictEqual([
+			expect(removeDuplicatesFromArray(arr1)).toStrictEqual([
 				"Hello",
 				"world",
 				"Goodbye",
@@ -41,20 +40,18 @@ describe("utils.test.tsx", () => {
 			]);
 		});
 		it("one matching element", () => {
-			const arr1 = ["Hello", "world"];
-			const arr2 = ["Goodbye", "world"];
+			const arr1 = ["Hello", "world", "Goodbye", "world"];
 
-			expect(removeDuplicatesFromArray(arr1, arr2)).toStrictEqual([
+			expect(removeDuplicatesFromArray(arr1)).toStrictEqual([
 				"Hello",
 				"world",
 				"Goodbye",
 			]);
 		});
 		it("multiple matching elements", () => {
-			const arr1 = ["Hello", "sweet", "world"];
-			const arr2 = ["Goodbye", "sweet", "world"];
+			const arr1 = ["Hello", "sweet", "world", "Goodbye", "sweet", "world"];
 
-			expect(removeDuplicatesFromArray(arr1, arr2)).toStrictEqual([
+			expect(removeDuplicatesFromArray(arr1)).toStrictEqual([
 				"Hello",
 				"sweet",
 				"world",
@@ -62,10 +59,9 @@ describe("utils.test.tsx", () => {
 			]);
 		});
 		it("all matching elements", () => {
-			const arr1 = ["Hello", "sweet", "world"];
-			const arr2 = ["Hello", "sweet", "world"];
+			const arr1 = ["Hello", "sweet", "world", "Hello", "sweet", "world"];
 
-			expect(removeDuplicatesFromArray(arr1, arr2)).toStrictEqual([
+			expect(removeDuplicatesFromArray(arr1)).toStrictEqual([
 				"Hello",
 				"sweet",
 				"world",
