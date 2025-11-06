@@ -7,10 +7,10 @@ export default function AddNewListItem() {
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 
 	const [title, setTitle] = useState("");
-	// const [category, setCategory] = useState("Chore");
+	const [category, setCategory] = useState("Chore");
 
 	function submitForm() {
-		console.log(title);
+		console.log(category);
 		clearForm();
 	}
 
@@ -22,7 +22,11 @@ export default function AddNewListItem() {
 			<h3>Add new list item</h3>
 			<form>
 				<Input label="Title" value={title} changeHandler={setTitle} />
-				<Dropdown label="Category" options={options} />
+				<Dropdown
+					label="Category"
+					options={options}
+					changeHandler={setCategory}
+				/>
 				<Button
 					text="Submit"
 					role="submit"

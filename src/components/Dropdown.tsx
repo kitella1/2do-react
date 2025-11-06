@@ -1,12 +1,18 @@
+import type { ChangeEvent } from "react";
 import { convertToKebabCase } from "../utils";
 
 interface DropdownProps {
 	label: string;
 	// The key will be used as the value
 	options: string[];
+	changeHandler: (value: string) => unknown;
 }
 
-export default function Dropdown({ label, options }: DropdownProps) {
+export default function Dropdown({
+	label,
+	options,
+	changeHandler,
+}: DropdownProps) {
 	const selectItems = options.map((option) => (
 		<option
 			key={convertToKebabCase(option)}
@@ -18,6 +24,11 @@ export default function Dropdown({ label, options }: DropdownProps) {
 		</option>
 	));
 
+	function getSelectedValue(event: ChangeEvent<HTMLSelectElement>) {
+		const value = event.target.value;
+		changeHandler(value);
+	}
+
 	return (
 		<label
 			data-testid="label"
@@ -27,6 +38,7 @@ export default function Dropdown({ label, options }: DropdownProps) {
 			<select
 				data-testid="select"
 				className="w-full max-w-80 md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
+				onChange={(e) => getSelectedValue(e)}
 			>
 				{selectItems}
 			</select>
