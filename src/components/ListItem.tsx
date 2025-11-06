@@ -19,7 +19,7 @@ export default function ListItem({ id, text }: ListItemProps) {
 
 	return (
 		<div
-			className={`w-full  border rounded-lg p-4 flex gap-x-2 
+			className={`w-full  border rounded-lg p-4 flex gap-x-2 transition-all duration-200
 			${
 				isChecked
 					? "bg-emerald-700/10 border-emerald-200/20"
