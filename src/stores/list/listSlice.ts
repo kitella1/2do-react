@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { removeDuplicatesFromArray } from "../../utils";
 import {
 	type ListItemInterface,
@@ -19,7 +19,7 @@ const counterSlice = createSlice({
 				id: "item-2",
 				content: "Feed the cat",
 				category: "chore",
-				isComplete: false,
+				isComplete: true,
 			},
 			{
 				id: "item-3",
@@ -28,7 +28,7 @@ const counterSlice = createSlice({
 				isComplete: false,
 			},
 			{
-				id: "item-3",
+				id: "item-4",
 				content: "Paint bathroom wall",
 				category: "DIY",
 				isComplete: false,
@@ -43,11 +43,14 @@ const counterSlice = createSlice({
 		) => {
 			state.listItems.unshift(action.payload);
 		},
-		completeListItem: (state, action: { type: string; payload: string }) => {
+		changeListItemState: (
+			state,
+			action: PayloadAction<{ id: string; isComplete: boolean }>
+		) => {
 			const itemToComplete = state.listItems.findIndex(
-				(item) => item.id === action.payload
+				(item) => item.id === action.payload.id
 			);
-			state.listItems[itemToComplete].isComplete = true;
+			state.listItems[itemToComplete].isComplete = action.payload.isComplete;
 		},
 		applyFilter: (
 			state,
@@ -70,6 +73,6 @@ const counterSlice = createSlice({
 	},
 });
 
-export const { addListItem, completeListItem, applyFilter } =
+export const { addListItem, changeListItemState, applyFilter } =
 	counterSlice.actions;
 export default counterSlice.reducer;

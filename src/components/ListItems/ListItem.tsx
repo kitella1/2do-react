@@ -1,21 +1,24 @@
 import { useState, type ChangeEvent } from "react";
+import { useAppDispatch } from "../../stores/hooks";
+import { changeListItemState } from "../../stores/list/listSlice";
 
 interface ListItemProps {
 	id: string;
 	text: string;
+	isChecked: boolean;
 	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
 }
 
-export default function ListItem({ id, text, category }: ListItemProps) {
-	const [isChecked, setIsChecked] = useState(false);
+export default function ListItem({
+	id,
+	text,
+	category,
+	isChecked,
+}: ListItemProps) {
+	const dispatch = useAppDispatch();
 
-	function listItemChecked(e: ChangeEvent<HTMLInputElement>) {
-		if (e.target.value) {
-			console.log("Checked!", id);
-		} else {
-			console.log("Unchecked!", id);
-		}
-		setIsChecked(!isChecked);
+	async function toggleListItem(e: ChangeEvent<HTMLInputElement>) {
+		dispatch(changeListItemState({ id, isComplete: e.target.checked }));
 	}
 
 	return (
@@ -38,7 +41,8 @@ export default function ListItem({ id, text, category }: ListItemProps) {
 					role="checkbox"
 					id={id}
 					type="checkbox"
-					onChange={listItemChecked}
+					checked={isChecked}
+					onChange={toggleListItem}
 				/>
 				<label
 					data-testid="label"

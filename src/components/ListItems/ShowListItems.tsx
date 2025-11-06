@@ -8,7 +8,13 @@ export const ShowListItems = () => {
 	) as ListItemInterface[];
 
 	const listItemCards = list.map((item) => (
-		<ListItem id={item.id} text={item.content} category={item.category} />
+		<ListItem
+			key={item.id}
+			id={item.id}
+			text={item.content}
+			category={item.category}
+			isChecked={item.isComplete}
+		/>
 	));
 
 	return (
