@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import { useAppDispatch } from "../../stores/hooks";
 import { changeListItemState } from "../../stores/list/listSlice";
 
