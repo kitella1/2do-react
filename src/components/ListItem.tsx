@@ -19,6 +19,7 @@ export default function ListItem({ id, text }: ListItemProps) {
 
 	return (
 		<div
+			data-testid="list-item"
 			className={`w-full  border rounded-lg p-4 flex gap-x-2 transition-all duration-200
 			${
 				isChecked
@@ -27,8 +28,15 @@ export default function ListItem({ id, text }: ListItemProps) {
 			}
 			`}
 		>
-			<input id={id} type="checkbox" onChange={listItemChecked} />
+			<input
+				data-testid="checkbox"
+				role="checkbox"
+				id={id}
+				type="checkbox"
+				onChange={listItemChecked}
+			/>
 			<label
+				data-testid="label"
 				htmlFor={id}
 				className={`flex items-center gap-x-2 ${
 					isChecked ? "line-through" : "no-underline"
