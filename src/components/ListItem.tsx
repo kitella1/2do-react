@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 
 interface ListItemProps {
 	id: string;
@@ -6,21 +6,34 @@ interface ListItemProps {
 }
 
 export default function ListItem({ id, text }: ListItemProps) {
+	const [isChecked, setIsChecked] = useState(false);
+
 	function listItemChecked(e: ChangeEvent<HTMLInputElement>) {
 		if (e.target.value) {
 			console.log("Checked!", id);
 		} else {
-			console.log("Unchcked!", id);
+			console.log("Unchecked!", id);
 		}
+		setIsChecked(!isChecked);
 	}
+
 	return (
-		<div className="w-full bg-gray-400 rounded-lg p-4 block relative">
-			<label className="flex items-center gap-x-2">
-				<input
-					type="checkbox"
-					className="checked:line-through"
-					onChange={listItemChecked}
-				/>
+		<div
+			className={`w-full  border rounded-lg p-4 flex gap-x-2 
+			${
+				isChecked
+					? "bg-emerald-700/10 border-emerald-200/20"
+					: "bg-gray-400/20 border-white/20"
+			}
+			`}
+		>
+			<input id={id} type="checkbox" onChange={listItemChecked} />
+			<label
+				htmlFor={id}
+				className={`flex items-center gap-x-2 ${
+					isChecked ? "line-through" : "no-underline"
+				}`}
+			>
 				{text}
 			</label>
 		</div>

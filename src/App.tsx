@@ -34,7 +34,7 @@ function App() {
 				<div className="w-full min-h-10 flex flex-col bg-amber-300">
 					{/* Filter and sort buttons goes here */}
 				</div>
-				<div className="w-full min-h-10 flex flex-col bg-green-900">
+				<div className="w-full min-h-10 flex flex-col">
 					<ListItem
 						id="list-item-1"
 						text="I am a list item with a thing to do"
