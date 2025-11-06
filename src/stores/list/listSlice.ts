@@ -1,37 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { removeDuplicatesFromArray } from "../../utils";
-
-interface ListItem {
-	id: string;
-	content: string;
-	category: string;
-	isComplete: boolean;
-}
-
-interface Filter {
-	filterType: "category"; // Can be expanded as new filters are needed
-	values: string[];
-}
+import {
+	type ListItemInterface,
+	type FilterInterface,
+} from "../../types/listItems";
 
 const counterSlice = createSlice({
 	name: "list",
 	initialState: {
-		list: [
-			{ id: "item-1", content: "Walk the dog", isComplete: false },
-		] as ListItem[],
-		filters: [] as Filter[],
+		listItems: [
+			{
+				id: "item-1",
+				content: "Walk the dog",
+				category: "chore",
+				isComplete: false,
+			},
+			{
+				id: "item-2",
+				content: "Feed the cat",
+				category: "chore",
+				isComplete: false,
+			},
+			{
+				id: "item-3",
+				content: "15 minute yoga",
+				category: "wellness",
+				isComplete: false,
+			},
+			{
+				id: "item-3",
+				content: "Paint bathroom wall",
+				category: "DIY",
+				isComplete: false,
+			},
+		] as ListItemInterface[],
+		filters: [] as FilterInterface[],
 	},
 	reducers: {
-		addListItem: (state, action: { type: string; payload: ListItem }) => {
-			state.list.unshift(action.payload);
+		addListItem: (
+			state,
+			action: { type: string; payload: ListItemInterface }
+		) => {
+			state.listItems.unshift(action.payload);
 		},
 		completeListItem: (state, action: { type: string; payload: string }) => {
-			const itemToComplete = state.list.findIndex(
+			const itemToComplete = state.listItems.findIndex(
 				(item) => item.id === action.payload
 			);
-			state.list[itemToComplete].isComplete = true;
+			state.listItems[itemToComplete].isComplete = true;
 		},
-		applyFilter: (state, action: { type: string; payload: Filter }) => {
+		applyFilter: (
+			state,
+			action: { type: string; payload: FilterInterface }
+		) => {
 			const filterAlreadyActive = state.filters.findIndex(
 				(item) => item.filterType === action.payload.filterType
 			);
