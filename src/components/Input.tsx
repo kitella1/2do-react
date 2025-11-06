@@ -14,7 +14,7 @@ export default function Input({
 	return (
 		<label
 			data-testid="label"
-			className="flex flex-col uppercase text-xs md:text-base font-semibold tracking-wide gap-y-1 relative"
+			className="flex flex-col uppercase text-xs md:text-base font-semibold tracking-wide gap-y-1 relative min-w-72 w-full"
 		>
 			{label}
 			<input

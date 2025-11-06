@@ -31,7 +31,7 @@ export default function AddNewListItem() {
 	return (
 		<div data-testid="list-item" className={``}>
 			<h3>Add new list item</h3>
-			<form>
+			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end">
 				<Input label="Title" value={title} changeHandler={setTitle} />
 				<Dropdown
 					label="Category"
