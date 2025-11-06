@@ -31,8 +31,19 @@
 	margin: 0 auto;
 }
 
-h1 {
-	@apply uppercase leading-[1.1] text-lg font-semibold tracking-[1px] m-0;
+h1,
+h2,
+h3,
+h4 {
+	@apply uppercase leading-[1.1] text-2xl font-extrabold tracking-[1px] m-0;
+}
+
+h2 {
+	@apply text-lg font-semibold;
+}
+
+h3 {
+	@apply text-xl font-bold;
 }
 
 @media (min-width: 768px) {

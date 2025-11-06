@@ -1,7 +1,7 @@
 export interface ListItemInterface {
 	id: string;
 	content: string;
-	category: string;
+	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
 	isComplete: boolean;
 }
 

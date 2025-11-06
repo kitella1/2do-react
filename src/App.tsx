@@ -1,15 +1,9 @@
 import twoDoLogo from "./assets/logo.png";
-import Dropdown from "./components/Dropdown";
-import Input from "./components/Input";
-import ListItem from "./components/ListItem";
+import AddNewListItem from "./components/ListItems/AddNewListItem";
+import ListItem from "./components/ListItems/ListItem";
+import { ShowListItems } from "./components/ListItems/ShowListItems";
 
 function App() {
-	const bookTitles = [
-		"Pride and Prejudice",
-		"Jurassic Park",
-		"Dune",
-		"How to Train Your Dragon",
-	];
 	return (
 		<>
 			<header className="w-full flex flex-col gap-y-2">
@@ -27,19 +21,13 @@ function App() {
 
 			<main className="flex flex-col w-full gap-1">
 				<div className="w-full min-h-10 flex flex-col gap-6">
-					{/* Form goes here with inputs */}
-					<Input label="Input label" />
-					<Dropdown label="Dropdown label" options={bookTitles} />
+					<AddNewListItem />
 				</div>
 				<div className="w-full min-h-10 flex flex-col bg-amber-300">
 					{/* Filter and sort buttons goes here */}
 				</div>
 				<div className="w-full min-h-10 flex flex-col">
-					<ListItem
-						id="list-item-1"
-						text="I am a list item with a thing to do"
-					/>
-					{/* TODO: Make cardsContainer with overflow rules */}
+					<ShowListItems />
 				</div>
 			</main>
 			<footer

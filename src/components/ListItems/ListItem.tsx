@@ -3,9 +3,10 @@ import { useState, type ChangeEvent } from "react";
 interface ListItemProps {
 	id: string;
 	text: string;
+	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
 }
 
-export default function ListItem({ id, text }: ListItemProps) {
+export default function ListItem({ id, text, category }: ListItemProps) {
 	const [isChecked, setIsChecked] = useState(false);
 
 	function listItemChecked(e: ChangeEvent<HTMLInputElement>) {
@@ -20,7 +21,7 @@ export default function ListItem({ id, text }: ListItemProps) {
 	return (
 		<div
 			data-testid="list-item"
-			className={`w-full  border rounded-lg p-4 flex gap-x-2 transition-all duration-200
+			className={`w-full  border rounded-lg p-4 flex flex-col gap-x-2 transition-all duration-200
 			${
 				isChecked
 					? "bg-emerald-700/10 border-emerald-200/20"
@@ -28,22 +29,25 @@ export default function ListItem({ id, text }: ListItemProps) {
 			}
 			`}
 		>
-			<input
-				data-testid="checkbox"
-				role="checkbox"
-				id={id}
-				type="checkbox"
-				onChange={listItemChecked}
-			/>
-			<label
-				data-testid="label"
-				htmlFor={id}
-				className={`flex items-center gap-x-2 ${
-					isChecked ? "line-through" : "no-underline"
-				}`}
-			>
-				{text}
-			</label>
+			<span className="flex uppercase font-extrabold leading-3 tracking-wider text-[8px]">
+				{category}
+			</span>
+			<span className="flex gap-2">
+				<input
+					data-testid="checkbox"
+					role="checkbox"
+					id={id}
+					type="checkbox"
+					onChange={listItemChecked}
+				/>
+				<label
+					data-testid="label"
+					htmlFor={id}
+					className={isChecked ? "line-through" : "no-underline"}
+				>
+					{text}
+				</label>
+			</span>
 		</div>
 	);
 }
