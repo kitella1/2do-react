@@ -11,6 +11,11 @@ export default function AddNewListItem() {
 
 	function submitForm() {
 		console.log(title);
+		clearForm();
+	}
+
+	function clearForm() {
+		setTitle("");
 	}
 	return (
 		<div data-testid="list-item" className={``}>
