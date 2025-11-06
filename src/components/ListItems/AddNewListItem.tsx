@@ -1,16 +1,27 @@
 import { useState } from "react";
+import { useAppDispatch } from "../../stores/hooks";
+import { addListItem } from "../../stores/list/listSlice";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
 
 export default function AddNewListItem() {
+	const dispatch = useAppDispatch();
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 
 	const [title, setTitle] = useState("");
-	const [category, setCategory] = useState("Chore");
+	const [category, setCategory] = useState(
+		"Chore" as "Chore" | "DIY" | "Wellness" | "Hobby" | "Other"
+	);
 
 	function submitForm() {
-		console.log(category);
+		const newListItem = {
+			id: `item-${Math.random()}`,
+			content: title,
+			category,
+			isComplete: false,
+		};
+		dispatch(addListItem(newListItem));
 		clearForm();
 	}
 
