@@ -1,11 +1,19 @@
 import { useContext } from "react";
 import { type ListItemInterface } from "../../types/listItems";
 import ListItem from "./ListItem";
-import { ListContext } from "../../reducers/context";
+import { ListContext, FiltersContext } from "../../reducers/context";
 
-export const ShowListItems = () => {
+export default function ShowListItems() {
 	const list = useContext(ListContext);
-	const listItemCards = list.map((item: ListItemInterface) => (
+	const filters = useContext(FiltersContext);
+
+	const listItemsToDisplay = list.filter((item) => {
+		return filters.some((activeFilter) => {
+			return item.category.toLowerCase() === activeFilter.toLowerCase();
+		});
+	});
+
+	const listItemCards = listItemsToDisplay.map((item: ListItemInterface) => (
 		<ListItem
 			key={item.id}
 			id={item.id}
@@ -24,4 +32,4 @@ export const ShowListItems = () => {
 			</div>
 		</section>
 	);
-};
+}

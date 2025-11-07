@@ -3,13 +3,14 @@ import { ListDispatchContext } from "../../reducers/context";
 import { removeDuplicatesFromArray } from "../../utils";
 
 export default function ApplyFilters() {
-	const dispatch = useContext(ListDispatchContext);
+	// const dispatch = useContext(ListDispatchContext);
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 	const [filters, setFilters] = useState([] as string[]);
 
 	// TODO: Store in localStorage
 	// TODO: check for value on page load
+	// TODO: Ensure all types/checks around category are all kebab-case outside of the display value
 
 	function filtersChanged(e: ChangeEvent<HTMLInputElement>) {
 		if (e.target.checked) {
