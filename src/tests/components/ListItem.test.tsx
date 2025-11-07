@@ -28,6 +28,6 @@ describe("ListItem.test.tsx", () => {
 
 		const label = screen.queryByTestId("label");
 		expect(label).toBeInTheDocument();
-		expect(label?.textContent).toContain(props.text);
+		expect(label?.textContent).toContain(props.title);
 	});
 });
