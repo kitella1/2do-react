@@ -5,7 +5,6 @@ export interface ListItemInterface {
 	isComplete: boolean;
 }
 
-// TODO: Update uses with this interfaces
 export type CategoriesInterface =
 	| "Chore"
 	| "DIY"

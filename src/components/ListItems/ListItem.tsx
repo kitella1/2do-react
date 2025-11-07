@@ -1,11 +1,12 @@
 import { useContext, type ChangeEvent } from "react";
 import { ListDispatchContext } from "../../reducers/context";
+import type { CategoriesInterface } from "../../types/listItems";
 
 interface ListItemProps {
 	id: string;
 	text: string;
 	isChecked: boolean;
-	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
+	category: CategoriesInterface;
 }
 
 export default function ListItem({
