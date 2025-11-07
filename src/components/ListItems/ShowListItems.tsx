@@ -19,7 +19,9 @@ export const ShowListItems = () => {
 		<section className="flex flex-col gap-y-2">
 			<h2>Your 2Do List</h2>
 			<hr />
-			<div className="flex flex-col gap-y-1">{listItemCards}</div>
+			<div className="flex flex-col gap-y-1 overflow-y-scroll">
+				{listItemCards}
+			</div>
 		</section>
 	);
 };
