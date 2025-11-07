@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ListItem from "../../components/ListItems/ListItem";
-import { ListContext } from "../../reducers/context";
+// TODO: Check for redundant code
 
 describe("ListItem.test.tsx", () => {
 	const props = {

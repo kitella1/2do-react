@@ -1,5 +1,6 @@
 import { useContext, type ChangeEvent } from "react";
 import { FiltersDispatchContext } from "../../reducers/context";
+import { convertToKebabCase } from "../../scripts/utils";
 // TODO: Check for commented out code
 
 export default function ApplyFilters() {
@@ -7,8 +8,6 @@ export default function ApplyFilters() {
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 
-	// TODO: Store in localStorage
-	// TODO: check for value on page load
 	// TODO: Ensure all types/checks around category are all kebab-case outside of the display value
 
 	function filtersChanged(e: ChangeEvent<HTMLInputElement>) {
@@ -27,10 +26,14 @@ export default function ApplyFilters() {
 
 	const checkboxes = options.map((option) => (
 		<label
-			key={option}
+			key={convertToKebabCase(option)}
 			className="text-xs md:text-lg md:tracking-wider flex items-center uppercase gap-x-1"
 		>
-			<input type="checkbox" value={option} onChange={filtersChanged} />
+			<input
+				type="checkbox"
+				value={convertToKebabCase(option)}
+				onChange={filtersChanged}
+			/>
 			{option}
 		</label>
 	));
