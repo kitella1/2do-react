@@ -5,6 +5,7 @@ import { useReducer } from "react";
 import listReducer from "./reducers/listReducer";
 import type { ListItemInterface } from "./types/listItems";
 import { ListContext, ListDispatchContext } from "./reducers/context";
+import ApplyFilters from "./components/Filters/ApplyFilters";
 
 function App() {
 	//TODO: Fetch from localStorage on app load
@@ -58,8 +59,8 @@ function App() {
 						<div className="w-full min-h-10 flex flex-col gap-6">
 							<AddNewListItem />
 						</div>
-						<div className="w-full min-h-10 flex flex-col bg-amber-300">
-							{/* Filter and sort buttons goes here */}
+						<div className="w-full min-h-10 flex flex-col ">
+							<ApplyFilters />
 						</div>
 						<div className="w-full min-h-10 flex flex-col">
 							<ShowListItems />
