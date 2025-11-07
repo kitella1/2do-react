@@ -1,6 +1,6 @@
 export interface ListItemInterface {
 	id: string;
-	content: string;
+	title: string;
 	category: CategoriesInterface;
 	isComplete: boolean;
 }

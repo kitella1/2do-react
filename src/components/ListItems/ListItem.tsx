@@ -4,14 +4,14 @@ import type { CategoriesInterface } from "../../types/listItems";
 
 interface ListItemProps {
 	id: string;
-	text: string;
+	title: string;
 	isChecked: boolean;
 	category: CategoriesInterface;
 }
 
 export default function ListItem({
 	id,
-	text,
+	title,
 	category,
 	isChecked,
 }: ListItemProps) {
@@ -53,7 +53,7 @@ export default function ListItem({
 					htmlFor={id}
 					className={isChecked ? "line-through" : "no-underline"}
 				>
-					{text}
+					{title}
 				</label>
 			</span>
 		</div>

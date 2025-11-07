@@ -8,13 +8,13 @@ const dispatchMock = vi.fn();
 const initialListItems = [
 	{
 		id: "item-1",
-		content: "Walk the dog",
+		title: "Walk the dog",
 		category: "Wellness",
 		isComplete: false,
 	},
 	{
 		id: "item-2",
-		content: "Feed the cat",
+		title: "Feed the cat",
 		category: "Chore",
 		isComplete: true,
 	},
@@ -54,7 +54,7 @@ describe("AddNewListItem.test.tsx", () => {
 		expect(dispatchMock).toHaveBeenCalledWith({
 			type: "added",
 			id: expect.any(String),
-			content: "New list item",
+			title: "New list item",
 			category: "diy",
 			isComplete: false,
 		});

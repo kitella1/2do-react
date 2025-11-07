@@ -20,7 +20,7 @@ export default function ShowListItems() {
 		<ListItem
 			key={item.id}
 			id={item.id}
-			text={item.content}
+			text={item.title}
 			category={item.category}
 			isChecked={item.isComplete}
 		/>

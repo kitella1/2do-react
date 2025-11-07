@@ -13,11 +13,10 @@ export default function listReducer(
 	switch (action.type) {
 		case "added": {
 			const newItem = {
-				// TODO: Rename content to title
 				// TODO: Rename isChecked to isComplete
 				id: action.id,
 				category: action.category,
-				content: action.content,
+				title: action.title,
 				isComplete: false,
 			} as ListItemInterface;
 			const updatedList = [{ ...newItem }, ...listItems];

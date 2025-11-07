@@ -5,13 +5,13 @@ describe("listReducer.test.tsx", () => {
 	const initialListItems = [
 		{
 			id: "item-1",
-			content: "Walk the dog",
+			title: "Walk the dog",
 			category: "Wellness",
 			isComplete: false,
 		},
 		{
 			id: "item-2",
-			content: "Feed the cat",
+			title: "Feed the cat",
 			category: "Chore",
 			isComplete: true,
 		},
@@ -21,7 +21,7 @@ describe("listReducer.test.tsx", () => {
 		const newListItem = {
 			id: "item-78",
 			category: "wellness",
-			content: "45 minute weightlifting",
+			title: "45 minute weightlifting",
 			isComplete: false,
 		};
 

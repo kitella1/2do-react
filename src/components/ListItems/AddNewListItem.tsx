@@ -32,7 +32,7 @@ export default function AddNewListItem() {
 		if (title.trim().length !== 0) {
 			const newListItem = {
 				id: `item-${Math.random() + 1}`,
-				content: title,
+				title,
 				category,
 				isComplete: false,
 			} as ListItemInterface;
