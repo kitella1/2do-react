@@ -15,7 +15,6 @@ import {
 import { getListFromLocalStorage } from "./scripts/localStorage";
 
 function App() {
-	//TODO: Fetch from localStorage on app load
 	const initialListItems = getListFromLocalStorage() as ListItemInterface[];
 
 	const [listItems, listDispatch] = useReducer(listReducer, initialListItems);

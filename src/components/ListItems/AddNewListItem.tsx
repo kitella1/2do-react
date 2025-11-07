@@ -19,9 +19,6 @@ export default function AddNewListItem() {
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 	const childInputRef = useRef<HTMLInputElement>(null);
-
-	// TODO: Store in localStorage
-	// TODO: check for value on page load
 	const [category, setCategory] = useState(
 		getCategorySelectionFromLocalStorage()
 	);
