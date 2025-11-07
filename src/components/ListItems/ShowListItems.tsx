@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { type ListItemInterface } from "../../types/listItems";
 import ListItem from "./ListItem";
+import { type ListItemInterface } from "../../types/listItems";
 import { ListContext, FiltersContext } from "../../reducers/context";
 
 export default function ShowListItems() {
