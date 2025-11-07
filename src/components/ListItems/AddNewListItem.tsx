@@ -19,17 +19,19 @@ export default function AddNewListItem() {
 	// TODO: check for value on page load
 
 	function submitForm() {
-		const newListItem = {
-			id: `item-${Math.random() + 1}`,
-			content: title,
-			category,
-			isComplete: false,
-		} as ListItemInterface;
-		dispatch({
-			type: "added",
-			...newListItem,
-		});
-		clearForm();
+		if (title.trim().length === 0) {
+			const newListItem = {
+				id: `item-${Math.random() + 1}`,
+				content: title,
+				category,
+				isComplete: false,
+			} as ListItemInterface;
+			dispatch({
+				type: "added",
+				...newListItem,
+			});
+			clearForm();
+		}
 	}
 
 	function clearForm() {
