@@ -12,7 +12,7 @@ export function getListFromLocalStorage() {
 	return lsList === null ? [] : JSON.parse(lsList);
 }
 
-export function updateFilterInLocalStorage(filters: CategoriesInterface[]) {
+export function updateFiltersInLocalStorage(filters: CategoriesInterface[]) {
 	localStorage.setItem("activeFilters", JSON.stringify(filters));
 }
 
