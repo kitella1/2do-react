@@ -5,12 +5,14 @@ interface DropdownProps {
 	label: string;
 	// The key will be used as the value
 	options: string[];
+	selectedOption: string;
 	changeHandler: (value: any) => unknown;
 }
 
 export default function Dropdown({
 	label,
 	options,
+	selectedOption,
 	changeHandler,
 }: DropdownProps) {
 	const selectItems = options.map((option) => (
@@ -19,6 +21,10 @@ export default function Dropdown({
 			data-testid={convertToKebabCase(option)}
 			value={convertToKebabCase(option)}
 			className="bg-white text-gray-950"
+			selected={
+				convertToKebabCase(selectedOption) === convertToKebabCase(option) ||
+				undefined
+			}
 		>
 			{option}
 		</option>

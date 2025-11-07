@@ -28,5 +28,6 @@ export function updateCategorySelectionInLocalStorage(
 }
 
 export function getCategorySelectionFromLocalStorage() {
-	localStorage.getItem("categorySelection");
+	const lsCategory = localStorage.getItem("categorySelection");
+	return lsCategory === null ? "Chore" : lsCategory;
 }
