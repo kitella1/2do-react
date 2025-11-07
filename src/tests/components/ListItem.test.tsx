@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import ListItem from "../../components/ListItems/ListItem";
-// TODO: Check for redundant code
 
 describe("ListItem.test.tsx", () => {
 	const props = {
