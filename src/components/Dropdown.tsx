@@ -1,5 +1,5 @@
 import type { ChangeEvent } from "react";
-import { convertToKebabCase } from "../utils";
+import { convertToKebabCase } from "../scripts/utils";
 
 interface DropdownProps {
 	label: string;

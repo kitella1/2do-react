@@ -1,4 +1,4 @@
-import { removeDuplicatesFromArray } from "../utils";
+import { removeDuplicatesFromArray } from "../scripts/utils";
 
 export interface ActionsInterface {
 	type: "selected" | "deselected";

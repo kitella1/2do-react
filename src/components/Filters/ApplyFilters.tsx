@@ -1,6 +1,6 @@
 import { useContext, useState, type ChangeEvent } from "react";
 import { FiltersDispatchContext } from "../../reducers/context";
-import { removeDuplicatesFromArray } from "../../utils";
+import { removeDuplicatesFromArray } from "../../scripts/utils";
 
 export default function ApplyFilters() {
 	const dispatch = useContext(FiltersDispatchContext);
