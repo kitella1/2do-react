@@ -21,10 +21,6 @@ export default function Dropdown({
 			data-testid={convertToKebabCase(option)}
 			value={convertToKebabCase(option)}
 			className="bg-white text-gray-950"
-			selected={
-				convertToKebabCase(selectedOption) === convertToKebabCase(option) ||
-				undefined
-			}
 		>
 			{option}
 		</option>
@@ -44,6 +40,7 @@ export default function Dropdown({
 			<select
 				data-testid="select"
 				className="max-w-80 md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
+				defaultValue={convertToKebabCase(selectedOption)}
 				onChange={(e) => getSelectedValue(e)}
 			>
 				{selectItems}

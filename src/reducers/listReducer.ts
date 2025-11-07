@@ -21,6 +21,7 @@ export default function listReducer(
 				isComplete: false,
 			} as ListItemInterface;
 			const updatedList = [{ ...newItem }, ...listItems];
+
 			updateListInLocalStorage(updatedList);
 			return updatedList;
 		}
@@ -35,11 +36,24 @@ export default function listReducer(
 					return item;
 				}
 			});
-			updateListInLocalStorage(updatedList);
-			return updatedList;
+			const sortedList = sortListByIncomplete(updatedList);
+			updateListInLocalStorage(sortedList);
+			return sortedList;
 		}
 		default: {
 			new Error("No action found.");
 		}
 	}
+}
+
+function sortListByIncomplete(list: ListItemInterface[]) {
+	return list.sort((a, b) => {
+		if (a.isComplete && !b.isComplete) {
+			return 1;
+		} else if (!a.isComplete && b.isComplete) {
+			return -1;
+		} else {
+			return 0;
+		}
+	});
 }
