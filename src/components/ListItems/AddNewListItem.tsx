@@ -62,7 +62,7 @@ export default function AddNewListItem() {
 	return (
 		<div data-testid="list-item">
 			<h3>Add new list item</h3>
-			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end">
+			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end mt-3">
 				<Input
 					label="Title"
 					value={title}
