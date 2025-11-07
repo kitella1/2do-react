@@ -3,7 +3,7 @@ import type { ListItemInterface } from "../types/listItems";
 
 export interface ActionsInterface {
 	type: "added" | "toggled";
-	[key: string]: any;
+	[key: string]: unknown;
 }
 
 export default function listReducer(
@@ -13,11 +13,9 @@ export default function listReducer(
 	switch (action.type) {
 		case "added": {
 			const newItem = {
-				// TODO: Rename content to title
-				// TODO: Rename isChecked to isComplete
 				id: action.id,
 				category: action.category,
-				content: action.content,
+				title: action.title,
 				isComplete: false,
 			} as ListItemInterface;
 			const updatedList = [{ ...newItem }, ...listItems];
@@ -35,7 +33,7 @@ export default function listReducer(
 				} else {
 					return item;
 				}
-			});
+			}) as ListItemInterface[];
 			const sortedList = sortListByIncomplete(updatedList);
 			updateListInLocalStorage(sortedList);
 			return sortedList;

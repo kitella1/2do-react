@@ -4,7 +4,7 @@ import type { CategoriesInterface } from "../types/listItems";
 
 export interface ActionsInterface {
 	type: "selected" | "deselected";
-	[key: string]: any;
+	[key: string]: string;
 }
 
 export default function listReducer(

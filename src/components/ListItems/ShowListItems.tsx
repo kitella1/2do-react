@@ -20,17 +20,17 @@ export default function ShowListItems() {
 		<ListItem
 			key={item.id}
 			id={item.id}
-			text={item.content}
+			title={item.title}
 			category={item.category}
-			isChecked={item.isComplete}
+			isComplete={item.isComplete}
 		/>
 	));
 
 	return (
-		<section className="flex flex-col gap-y-2">
+		<section className="flex flex-col gap-y-2 h-full relative">
 			<h2>Your 2Do List</h2>
 			<hr />
-			<div className="flex flex-col gap-y-1 overflow-y-scroll">
+			<div className="flex flex-col gap-y-1 absolute inset-0 top-10 overflow-y-scroll">
 				{listItemCards}
 			</div>
 		</section>

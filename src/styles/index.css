@@ -29,6 +29,7 @@
 
 #root {
 	margin: 0 auto;
+	@apply h-screen flex flex-col;
 }
 
 h1,

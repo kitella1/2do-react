@@ -19,9 +19,6 @@ export default function AddNewListItem() {
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 	const childInputRef = useRef<HTMLInputElement>(null);
-
-	// TODO: Store in localStorage
-	// TODO: check for value on page load
 	const [category, setCategory] = useState(
 		getCategorySelectionFromLocalStorage()
 	);
@@ -35,7 +32,7 @@ export default function AddNewListItem() {
 		if (title.trim().length !== 0) {
 			const newListItem = {
 				id: `item-${Math.random() + 1}`,
-				content: title,
+				title,
 				category,
 				isComplete: false,
 			} as ListItemInterface;
@@ -60,9 +57,9 @@ export default function AddNewListItem() {
 		setTitle("");
 	}
 	return (
-		<div data-testid="list-item" className={``}>
+		<div data-testid="list-item">
 			<h3>Add new list item</h3>
-			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end">
+			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end mt-3">
 				<Input
 					label="Title"
 					value={title}

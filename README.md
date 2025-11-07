@@ -4,12 +4,11 @@ Welcome to 2Do! My submission for the Senior Software Engineer role with the NHS
 
 ## Features 🔨
 
-2Do has a range of features available.
-
 - Add new tasks using the input fields.
-- Complete and delete tasks individually.
-- Complete and delete multiple items on your list with 'Edit mode'.
-- Lists are saved to local storage whenever an item is added, deleted, or updated.
+- Complete tasks individually.
+- Lists are saved to local storage whenever an item is added or updated.
+- Filter by item category.
+- The input field will focus on page load, or after an item is added.
 
 ## Design 🎨
 
@@ -41,9 +40,6 @@ docker run -p 4173:4173 2do
 
 To run unit tests for this project, run the below command.
 `npm run test:unit`
-
-To run end-to-end tests for this project, run the below command:
-`npm run test:e2e`
 
 ## AI Declaration ✨
 

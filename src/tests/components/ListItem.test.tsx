@@ -1,13 +1,12 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ListItem from "../../components/ListItems/ListItem";
-import { ListContext } from "../../reducers/context";
 
 describe("ListItem.test.tsx", () => {
 	const props = {
 		id: "item-123",
-		text: "Hello world",
+		title: "Hello world",
 		category: "Chore",
-		isChecked: false,
+		isComplete: false,
 	} as const;
 
 	it("renders listitem", () => {
@@ -29,6 +28,6 @@ describe("ListItem.test.tsx", () => {
 
 		const label = screen.queryByTestId("label");
 		expect(label).toBeInTheDocument();
-		expect(label?.textContent).toContain(props.text);
+		expect(label?.textContent).toContain(props.title);
 	});
 });

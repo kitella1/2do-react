@@ -1,18 +1,19 @@
 import { useContext, type ChangeEvent } from "react";
 import { ListDispatchContext } from "../../reducers/context";
+import type { CategoriesInterface } from "../../types/listItems";
 
 interface ListItemProps {
 	id: string;
-	text: string;
-	isChecked: boolean;
-	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
+	title: string;
+	isComplete: boolean;
+	category: CategoriesInterface;
 }
 
 export default function ListItem({
 	id,
-	text,
+	title,
 	category,
-	isChecked,
+	isComplete,
 }: ListItemProps) {
 	const dispatch = useContext(ListDispatchContext);
 
@@ -27,15 +28,15 @@ export default function ListItem({
 	return (
 		<div
 			data-testid="list-item"
-			className={`w-full  border rounded-lg p-4 flex flex-col gap-x-2 transition-all duration-200
+			className={`w-full  border rounded-lg p-4 flex flex-col gap-x-2 md:gap-y-1 transition-all duration-200
 			${
-				isChecked
+				isComplete
 					? "bg-emerald-700/10 border-emerald-200/20"
 					: "bg-gray-400/20 border-white/20"
 			}
 			`}
 		>
-			<span className="flex uppercase font-extrabold leading-3 tracking-wider text-[8px]">
+			<span className="flex uppercase font-extrabold leading-3 tracking-wider text-[8px] md:text-[10px]">
 				{category}
 			</span>
 			<span className="flex gap-2">
@@ -44,15 +45,15 @@ export default function ListItem({
 					role="checkbox"
 					id={id}
 					type="checkbox"
-					checked={isChecked}
+					checked={isComplete}
 					onChange={toggleListItem}
 				/>
 				<label
 					data-testid="label"
 					htmlFor={id}
-					className={isChecked ? "line-through" : "no-underline"}
+					className={isComplete ? "line-through" : "no-underline"}
 				>
-					{text}
+					{title}
 				</label>
 			</span>
 		</div>

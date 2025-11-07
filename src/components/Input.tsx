@@ -32,7 +32,7 @@ export default function Input({
 			<input
 				data-testid="input"
 				type="text"
-				className="w-full max-w-80 md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
+				className="w-full md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
 				placeholder={placeholder}
 				value={value}
 				ref={inputRef}
