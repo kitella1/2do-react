@@ -19,7 +19,6 @@ export default function listReducer(
 				isComplete: false,
 			} as ListItemInterface;
 			const updatedList = [{ ...newItem }, ...listItems];
-
 			updateListInLocalStorage(updatedList);
 			return updatedList;
 		}

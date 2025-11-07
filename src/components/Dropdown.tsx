@@ -3,7 +3,6 @@ import { convertToKebabCase } from "../scripts/utils";
 
 interface DropdownProps {
 	label: string;
-	// The key will be used as the value
 	options: string[];
 	selectedOption?: string | undefined;
 	changeHandler: (value: unknown) => unknown;

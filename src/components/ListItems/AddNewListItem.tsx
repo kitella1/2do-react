@@ -15,13 +15,13 @@ import {
 export default function AddNewListItem() {
 	const dispatch = useContext(ListDispatchContext);
 
-	const [title, setTitle] = useState("");
-
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
-	const childInputRef = useRef<HTMLInputElement>(null);
+	const [title, setTitle] = useState("");
 	const [category, setCategory] = useState(
 		getCategorySelectionFromLocalStorage()
 	);
+
+	const childInputRef = useRef<HTMLInputElement>(null);
 
 	function changeCategory(category: CategoriesInterface) {
 		setCategory(category);
