@@ -1,6 +1,6 @@
-import { type ChangeEvent } from "react";
-import { useAppDispatch } from "../../stores/hooks";
+import { useContext, type ChangeEvent } from "react";
 import { changeListItemState } from "../../stores/list/listSlice";
+import { ListDispatchContext } from "../../reducers/context";
 
 interface ListItemProps {
 	id: string;
@@ -15,10 +15,14 @@ export default function ListItem({
 	category,
 	isChecked,
 }: ListItemProps) {
-	const dispatch = useAppDispatch();
+	const dispatch = useContext(ListDispatchContext);
 
 	async function toggleListItem(e: ChangeEvent<HTMLInputElement>) {
-		dispatch(changeListItemState({ id, isComplete: e.target.checked }));
+		dispatch({
+			type: "toggled",
+			id,
+			isComplete: e.target.checked,
+		});
 	}
 
 	return (

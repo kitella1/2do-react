@@ -20,13 +20,19 @@ export default function listReducer(
 			return [{ ...newItem }, ...listItems];
 		}
 		case "toggled": {
-			const itemToComplete = listItems.findIndex(
-				(item) => item.id === action.id
-			);
-			return (listItems[itemToComplete].isComplete = action.isComplete);
+			return listItems.map((item) => {
+				if (item.id === action.id) {
+					return {
+						...item,
+						isComplete: action.isComplete,
+					};
+				} else {
+					return item;
+				}
+			});
 		}
 		default: {
-			throw Error("Unknown action: " + action.type);
+			new Error("No action found.");
 		}
 	}
 }
