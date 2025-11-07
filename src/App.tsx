@@ -40,6 +40,7 @@ function App() {
 
 	return (
 		<>
+			{/* TODO: Use justify-between here to ensure that scroll kicks in */}
 			<header className="w-full flex flex-col gap-y-2">
 				<img
 					data-testid="logo"
