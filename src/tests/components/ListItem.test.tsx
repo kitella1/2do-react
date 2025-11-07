@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import ListItem from "../../components/ListItem";
+import ListItem from "../../components/ListItems/ListItem";
 
 describe("ListItem.test.tsx", () => {
 	const props = {

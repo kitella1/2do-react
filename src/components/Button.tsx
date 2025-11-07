@@ -1,16 +1,23 @@
+import type { MouseEvent } from "react";
+
 interface ButtonProps {
 	text: string;
 	style: "primary" | "accent" | "warning";
 	role: string;
-	clickHandler?: () => unknown;
+	clickHandler: (e: unknown) => unknown;
 }
 
 export default function Button({
 	text,
 	style,
 	role = "button",
-	clickHandler = undefined,
+	clickHandler,
 }: ButtonProps) {
+	function buttonClicked(e: MouseEvent<HTMLButtonElement>) {
+		e.preventDefault();
+		clickHandler(e);
+	}
+
 	function buttonStyles() {
 		switch (style) {
 			case "warning":
@@ -26,10 +33,10 @@ export default function Button({
 		<button
 			className={
 				buttonStyles() +
-				" p-2 py-2 rounded-sm max-w-max uppercase font-semibold text-xs md:text-base tracking-wide hover:scale-105 transition-all hover:brightness-110"
+				" p-2 py-2 rounded-sm min-w-44 md:h-12 uppercase font-semibold text-xs md:text-base tracking-wide hover:scale-105 transition-all hover:brightness-110"
 			}
 			role={role}
-			onClick={clickHandler}
+			onClick={buttonClicked}
 			data-testid="button"
 		>
 			{text}
