@@ -5,7 +5,7 @@ interface DropdownProps {
 	label: string;
 	// The key will be used as the value
 	options: string[];
-	selectedOption: string;
+	selectedOption?: string | undefined;
 	changeHandler: (value: any) => unknown;
 }
 
@@ -40,7 +40,9 @@ export default function Dropdown({
 			<select
 				data-testid="select"
 				className="max-w-80 md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
-				defaultValue={convertToKebabCase(selectedOption)}
+				defaultValue={
+					selectedOption ? convertToKebabCase(selectedOption) : undefined
+				}
 				onChange={(e) => getSelectedValue(e)}
 			>
 				{selectItems}

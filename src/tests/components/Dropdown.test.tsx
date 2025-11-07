@@ -5,6 +5,7 @@ describe("Dropdown.test.tsx", () => {
 	const props = {
 		label: "Book title",
 		defaultValue: "Jurassic Park",
+		selectedOption: "Pride and Prejudice",
 		// The key will be used as the value
 		options: [
 			"Pride and Prejudice",
