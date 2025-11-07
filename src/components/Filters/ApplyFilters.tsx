@@ -8,8 +8,6 @@ export default function ApplyFilters() {
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 
-	// TODO: Ensure all types/checks around category are all kebab-case outside of the display value
-
 	function filtersChanged(e: ChangeEvent<HTMLInputElement>) {
 		if (e.target.checked) {
 			dispatch({
