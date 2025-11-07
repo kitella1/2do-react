@@ -2,8 +2,15 @@ import { useContext, useState } from "react";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
-import type { ListItemInterface } from "../../types/listItems";
+import type {
+	CategoriesInterface,
+	ListItemInterface,
+} from "../../types/listItems";
 import { ListDispatchContext } from "../../reducers/context";
+import {
+	getCategorySelectionFromLocalStorage,
+	updateCategorySelectionInLocalStorage,
+} from "../../scripts/localStorage";
 
 export default function AddNewListItem() {
 	const dispatch = useContext(ListDispatchContext);
@@ -15,8 +22,13 @@ export default function AddNewListItem() {
 	// TODO: Store in localStorage
 	// TODO: check for value on page load
 	const [category, setCategory] = useState(
-		"Chore" as "Chore" | "DIY" | "Wellness" | "Hobby" | "Other"
+		getCategorySelectionFromLocalStorage()
 	);
+
+	function changeCategory(category: CategoriesInterface) {
+		setCategory(category);
+		updateCategorySelectionInLocalStorage(category);
+	}
 
 	function submitForm() {
 		if (title.trim().length !== 0) {
@@ -45,7 +57,8 @@ export default function AddNewListItem() {
 				<Dropdown
 					label="Category"
 					options={options}
-					changeHandler={setCategory}
+					selectedOption={getCategorySelectionFromLocalStorage()}
+					changeHandler={changeCategory}
 				/>
 				<Button
 					text="Submit"

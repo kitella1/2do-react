@@ -1,4 +1,7 @@
-import { convertToKebabCase, removeDuplicatesFromArray } from "../utils";
+import {
+	convertToKebabCase,
+	removeDuplicatesFromArray,
+} from "../scripts/utils";
 
 describe("utils.test.tsx", () => {
 	describe("convertToKebabCase", () => {

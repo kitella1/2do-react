@@ -1,3 +1,4 @@
+import { updateListInLocalStorage } from "../scripts/localStorage";
 import type { ListItemInterface } from "../types/listItems";
 
 export interface ActionsInterface {
@@ -19,10 +20,13 @@ export default function listReducer(
 				content: action.content,
 				isComplete: false,
 			} as ListItemInterface;
-			return [{ ...newItem }, ...listItems];
+			const updatedList = [{ ...newItem }, ...listItems];
+
+			updateListInLocalStorage(updatedList);
+			return updatedList;
 		}
 		case "toggled": {
-			return listItems.map((item) => {
+			const updatedList = listItems.map((item) => {
 				if (item.id === action.id) {
 					return {
 						...item,
@@ -32,9 +36,24 @@ export default function listReducer(
 					return item;
 				}
 			});
+			const sortedList = sortListByIncomplete(updatedList);
+			updateListInLocalStorage(sortedList);
+			return sortedList;
 		}
 		default: {
 			new Error("No action found.");
 		}
 	}
+}
+
+function sortListByIncomplete(list: ListItemInterface[]) {
+	return list.sort((a, b) => {
+		if (a.isComplete && !b.isComplete) {
+			return 1;
+		} else if (!a.isComplete && b.isComplete) {
+			return -1;
+		} else {
+			return 0;
+		}
+	});
 }

@@ -12,35 +12,11 @@ import {
 	ListContext,
 	ListDispatchContext,
 } from "./reducers/context";
+import { getListFromLocalStorage } from "./scripts/localStorage";
 
 function App() {
 	//TODO: Fetch from localStorage on app load
-	const initialListItems = [
-		{
-			id: "item-1",
-			content: "Walk the dog",
-			category: "chore",
-			isComplete: false,
-		},
-		{
-			id: "item-2",
-			content: "Feed the cat",
-			category: "chore",
-			isComplete: true,
-		},
-		{
-			id: "item-3",
-			content: "15 minute yoga",
-			category: "wellness",
-			isComplete: false,
-		},
-		{
-			id: "item-4",
-			content: "Paint bathroom wall",
-			category: "DIY",
-			isComplete: false,
-		},
-	] as ListItemInterface[];
+	const initialListItems = getListFromLocalStorage() as ListItemInterface[];
 
 	const [listItems, listDispatch] = useReducer(listReducer, initialListItems);
 	const [activeFilters, filterDispatch] = useReducer(filterReducer, []);
