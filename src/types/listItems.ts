@@ -1,11 +1,14 @@
 export interface ListItemInterface {
 	id: string;
 	content: string;
-	category: "Chore" | "DIY" | "Wellness" | "Hobby" | "Other";
+	category: CategoriesInterface;
 	isComplete: boolean;
 }
 
-export interface FilterInterface {
-	filterType: "category"; // Can be expanded as new filters are needed
-	values: string[];
-}
+// TODO: Update uses with this interfaces
+export type CategoriesInterface =
+	| "Chore"
+	| "DIY"
+	| "Wellness"
+	| "Hobby"
+	| "Other";
