@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
@@ -18,6 +18,7 @@ export default function AddNewListItem() {
 	const [title, setTitle] = useState("");
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
+	const childInputRef = useRef<HTMLInputElement>(null);
 
 	// TODO: Store in localStorage
 	// TODO: check for value on page load
@@ -42,8 +43,17 @@ export default function AddNewListItem() {
 				type: "added",
 				...newListItem,
 			});
+			focusInput();
 			clearForm();
 		}
+	}
+
+	useEffect(() => {
+		focusInput();
+	}, []);
+
+	function focusInput() {
+		childInputRef.current?.focus();
 	}
 
 	function clearForm() {
@@ -53,7 +63,12 @@ export default function AddNewListItem() {
 		<div data-testid="list-item" className={``}>
 			<h3>Add new list item</h3>
 			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end">
-				<Input label="Title" value={title} changeHandler={setTitle} />
+				<Input
+					label="Title"
+					value={title}
+					changeHandler={setTitle}
+					ref={childInputRef}
+				/>
 				<Dropdown
 					label="Category"
 					options={options}
