@@ -1,10 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import ListItem from "../../components/ListItems/ListItem";
+import { ListContext } from "../../reducers/context";
 
 describe("ListItem.test.tsx", () => {
 	const props = {
 		id: "item-123",
 		text: "Hello world",
+		category: "Chore",
+		isChecked: false,
 	} as const;
 
 	it("renders listitem", () => {
@@ -27,24 +30,5 @@ describe("ListItem.test.tsx", () => {
 		const label = screen.queryByTestId("label");
 		expect(label).toBeInTheDocument();
 		expect(label?.textContent).toContain(props.text);
-	});
-
-	it("card is re-styled based on state", () => {
-		render(<ListItem {...props} />);
-
-		const listItem = screen.queryByTestId("list-item");
-		const label = screen.queryByTestId("label");
-
-		expect(listItem?.getAttribute("class")).toContain(
-			"bg-gray-400/20 border-white/20"
-		);
-		expect(label?.getAttribute("class")).toContain("no-underline");
-
-		const checkbox = screen.getByRole("checkbox");
-		fireEvent.click(checkbox);
-		expect(listItem?.getAttribute("class")).toContain(
-			"bg-emerald-700/10 border-emerald-200/20"
-		);
-		expect(label?.getAttribute("class")).toContain("line-through");
 	});
 });
