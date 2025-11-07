@@ -1,3 +1,4 @@
+import { updateListInLocalStorage } from "../scripts/localStorage";
 import type { ListItemInterface } from "../types/listItems";
 
 export interface ActionsInterface {
@@ -19,10 +20,12 @@ export default function listReducer(
 				content: action.content,
 				isComplete: false,
 			} as ListItemInterface;
-			return [{ ...newItem }, ...listItems];
+			const updatedList = [{ ...newItem }, ...listItems];
+			updateListInLocalStorage(updatedList);
+			return updatedList;
 		}
 		case "toggled": {
-			return listItems.map((item) => {
+			const updatedList = listItems.map((item) => {
 				if (item.id === action.id) {
 					return {
 						...item,
@@ -32,6 +35,8 @@ export default function listReducer(
 					return item;
 				}
 			});
+			updateListInLocalStorage(updatedList);
+			return updatedList;
 		}
 		default: {
 			new Error("No action found.");
