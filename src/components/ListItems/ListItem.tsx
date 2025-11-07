@@ -1,5 +1,4 @@
 import { useContext, type ChangeEvent } from "react";
-import { changeListItemState } from "../../stores/list/listSlice";
 import { ListDispatchContext } from "../../reducers/context";
 
 interface ListItemProps {
