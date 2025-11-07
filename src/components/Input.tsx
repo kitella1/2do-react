@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 interface InputProps {
 	label: string;
 	placeholder?: string;
@@ -11,6 +13,12 @@ export default function Input({
 	value = "",
 	changeHandler,
 }: InputProps) {
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	function focusInput() {
+		inputRef.current?.focus();
+	}
+
 	return (
 		<label
 			data-testid="label"
@@ -23,6 +31,7 @@ export default function Input({
 				className="w-full max-w-80 md:max-w-96 border rounded-xs md:rounded-sm border-white placeholder:text-sm placeholder:text-gray-950/40 placeholder:align-top font-normal p-1 bg-gray-50 text-gray-950"
 				placeholder={placeholder}
 				value={value}
+				ref={inputRef}
 				onChange={(e) => changeHandler(e.target.value)}
 			/>
 		</label>
