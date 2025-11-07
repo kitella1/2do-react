@@ -19,7 +19,7 @@ export default function AddNewListItem() {
 	// TODO: check for value on page load
 
 	function submitForm() {
-		if (title.trim().length === 0) {
+		if (title.trim().length !== 0) {
 			const newListItem = {
 				id: `item-${Math.random() + 1}`,
 				content: title,
