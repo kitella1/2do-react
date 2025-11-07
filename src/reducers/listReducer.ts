@@ -3,7 +3,7 @@ import type { ListItemInterface } from "../types/listItems";
 
 export interface ActionsInterface {
 	type: "added" | "toggled";
-	[key: string]: any;
+	[key: string]: unknown;
 }
 
 export default function listReducer(
@@ -35,7 +35,7 @@ export default function listReducer(
 				} else {
 					return item;
 				}
-			});
+			}) as ListItemInterface[];
 			const sortedList = sortListByIncomplete(updatedList);
 			updateListInLocalStorage(sortedList);
 			return sortedList;

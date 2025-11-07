@@ -6,7 +6,7 @@ interface DropdownProps {
 	// The key will be used as the value
 	options: string[];
 	selectedOption?: string | undefined;
-	changeHandler: (value: any) => unknown;
+	changeHandler: (value: unknown) => unknown;
 }
 
 export default function Dropdown({
