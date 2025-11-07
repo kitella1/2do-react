@@ -26,7 +26,10 @@ export default function ApplyFilters() {
 	}
 
 	const checkboxes = options.map((option) => (
-		<label key={option} className="text-xs flex items-center uppercase gap-x-1">
+		<label
+			key={option}
+			className="text-xs md:text-base md:tracking-wider flex items-center uppercase gap-x-1"
+		>
 			<input type="checkbox" value={option} onChange={filtersChanged} />
 			{option}
 		</label>

@@ -23,8 +23,7 @@ function App() {
 
 	return (
 		<>
-			{/* TODO: Use justify-between here to ensure that overflow-scroll kicks in */}
-			<header className="w-full flex flex-col gap-y-2">
+			<header className="w-full flex flex-col gap-y-2 h-24 shrink-0">
 				<img
 					data-testid="logo"
 					src={twoDoLogo}
@@ -37,20 +36,14 @@ function App() {
 				</h1>
 			</header>
 
-			<main className="flex flex-col w-full gap-1">
+			<main className="flex flex-col w-full gap-1 shrink h-full">
 				<ListContext value={listItems}>
 					<FiltersContext value={activeFilters}>
 						<ListDispatchContext value={listDispatch}>
 							<FiltersDispatchContext value={filterDispatch}>
-								<div className="w-full min-h-10 flex flex-col gap-6">
-									<AddNewListItem />
-								</div>
-								<div className="w-full min-h-10 flex flex-col ">
-									<ApplyFilters />
-								</div>
-								<div className="w-full min-h-10 flex flex-col">
-									<ShowListItems />
-								</div>
+								<AddNewListItem />
+								<ApplyFilters />
+								<ShowListItems />
 							</FiltersDispatchContext>
 						</ListDispatchContext>
 					</FiltersContext>
@@ -58,7 +51,7 @@ function App() {
 			</main>
 			<footer
 				data-testid="footer"
-				className="text-xs italic fixed text-white/50 bottom-0 min-h-16"
+				className="text-xs italic text-white/50 bottom-0 h-8 shrink-0 w-full text-center"
 			>
 				Developed by Katie Adams, 2025
 			</footer>

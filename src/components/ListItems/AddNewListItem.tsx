@@ -60,7 +60,7 @@ export default function AddNewListItem() {
 		setTitle("");
 	}
 	return (
-		<div data-testid="list-item" className={``}>
+		<div data-testid="list-item">
 			<h3>Add new list item</h3>
 			<form className="flex flex-col gap-2 w-full md:flex-row md:justify-between md:items-end">
 				<Input
