@@ -1,10 +1,17 @@
 import twoDoLogo from "./assets/logo.png";
 import AddNewListItem from "./components/ListItems/AddNewListItem";
-import { ShowListItems } from "./components/ListItems/ShowListItems";
+import ApplyFilters from "./components/Filters/ApplyFilters";
+import ShowListItems from "./components/ListItems/ShowListItems";
 import { useReducer } from "react";
 import listReducer from "./reducers/listReducer";
+import filterReducer from "./reducers/filterReducer";
 import type { ListItemInterface } from "./types/listItems";
-import { ListContext, ListDispatchContext } from "./reducers/context";
+import {
+	FiltersContext,
+	FiltersDispatchContext,
+	ListContext,
+	ListDispatchContext,
+} from "./reducers/context";
 
 function App() {
 	//TODO: Fetch from localStorage on app load
@@ -35,10 +42,12 @@ function App() {
 		},
 	] as ListItemInterface[];
 
-	const [listItems, dispatch] = useReducer(listReducer, initialListItems);
+	const [listItems, listDispatch] = useReducer(listReducer, initialListItems);
+	const [activeFilters, filterDispatch] = useReducer(filterReducer, []);
 
 	return (
 		<>
+			{/* TODO: Use justify-between here to ensure that overflow-scroll kicks in */}
 			<header className="w-full flex flex-col gap-y-2">
 				<img
 					data-testid="logo"
@@ -54,17 +63,21 @@ function App() {
 
 			<main className="flex flex-col w-full gap-1">
 				<ListContext value={listItems}>
-					<ListDispatchContext value={dispatch}>
-						<div className="w-full min-h-10 flex flex-col gap-6">
-							<AddNewListItem />
-						</div>
-						<div className="w-full min-h-10 flex flex-col bg-amber-300">
-							{/* Filter and sort buttons goes here */}
-						</div>
-						<div className="w-full min-h-10 flex flex-col">
-							<ShowListItems />
-						</div>
-					</ListDispatchContext>
+					<FiltersContext value={activeFilters}>
+						<ListDispatchContext value={listDispatch}>
+							<FiltersDispatchContext value={filterDispatch}>
+								<div className="w-full min-h-10 flex flex-col gap-6">
+									<AddNewListItem />
+								</div>
+								<div className="w-full min-h-10 flex flex-col ">
+									<ApplyFilters />
+								</div>
+								<div className="w-full min-h-10 flex flex-col">
+									<ShowListItems />
+								</div>
+							</FiltersDispatchContext>
+						</ListDispatchContext>
+					</FiltersContext>
 				</ListContext>
 			</main>
 			<footer
