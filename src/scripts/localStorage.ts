@@ -20,3 +20,13 @@ export function getFiltersFromLocalStorage() {
 	const lsFilters = localStorage.getItem("activeFilters");
 	return lsFilters === null ? [] : JSON.parse(lsFilters);
 }
+
+export function updateCategorySelectionInLocalStorage(
+	category: CategoriesInterface
+) {
+	localStorage.setItem("categorySelection", category);
+}
+
+export function getCategorySelectionFromLocalStorage() {
+	localStorage.getItem("categorySelection");
+}
