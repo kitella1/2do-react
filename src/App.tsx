@@ -43,11 +43,11 @@ function App() {
 	] as ListItemInterface[];
 
 	const [listItems, listDispatch] = useReducer(listReducer, initialListItems);
-	const [activeFilters, filterDispatch] = useReducer(filterReducer, ["diy"]);
+	const [activeFilters, filterDispatch] = useReducer(filterReducer, []);
 
 	return (
 		<>
-			{/* TODO: Use justify-between here to ensure that scroll kicks in */}
+			{/* TODO: Use justify-between here to ensure that overflow-scroll kicks in */}
 			<header className="w-full flex flex-col gap-y-2">
 				<img
 					data-testid="logo"

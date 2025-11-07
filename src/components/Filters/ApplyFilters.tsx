@@ -1,12 +1,11 @@
 import { useContext, useState, type ChangeEvent } from "react";
-import { ListDispatchContext } from "../../reducers/context";
+import { FiltersDispatchContext } from "../../reducers/context";
 import { removeDuplicatesFromArray } from "../../utils";
 
 export default function ApplyFilters() {
-	// const dispatch = useContext(ListDispatchContext);
+	const dispatch = useContext(FiltersDispatchContext);
 
 	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
-	const [filters, setFilters] = useState([] as string[]);
 
 	// TODO: Store in localStorage
 	// TODO: check for value on page load
@@ -14,12 +13,15 @@ export default function ApplyFilters() {
 
 	function filtersChanged(e: ChangeEvent<HTMLInputElement>) {
 		if (e.target.checked) {
-			const currentFilters = filters;
-			currentFilters.push(e.target.value);
-			setFilters(removeDuplicatesFromArray(currentFilters));
+			dispatch({
+				type: "selected",
+				filter: e.target.value,
+			});
 		} else {
-			const removedFilter = filters.filter((f) => f !== e.target.value);
-			setFilters(removeDuplicatesFromArray(removedFilter));
+			dispatch({
+				type: "deselected",
+				filter: e.target.value,
+			});
 		}
 	}
 

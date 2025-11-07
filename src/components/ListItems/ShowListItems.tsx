@@ -7,11 +7,14 @@ export default function ShowListItems() {
 	const list = useContext(ListContext);
 	const filters = useContext(FiltersContext);
 
-	const listItemsToDisplay = list.filter((item) => {
-		return filters.some((activeFilter) => {
-			return item.category.toLowerCase() === activeFilter.toLowerCase();
-		});
-	});
+	const listItemsToDisplay =
+		filters.length < 1
+			? list
+			: list.filter((item) => {
+					return filters.some((activeFilter) => {
+						return item.category.toLowerCase() === activeFilter.toLowerCase();
+					});
+			  });
 
 	const listItemCards = listItemsToDisplay.map((item: ListItemInterface) => (
 		<ListItem
