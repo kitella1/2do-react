@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useImperativeHandle, useRef, type RefObject } from "react";
 
 interface InputProps {
 	label: string;
 	placeholder?: string;
 	value: string;
+	ref: RefObject<unknown>;
 	changeHandler: (value: string) => unknown;
 }
 
@@ -11,13 +12,16 @@ export default function Input({
 	placeholder = "Enter text here...",
 	label,
 	value = "",
+	ref,
 	changeHandler,
 }: InputProps) {
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	function focusInput() {
-		inputRef.current?.focus();
-	}
+	useImperativeHandle(ref, () => ({
+		focus: () => {
+			inputRef.current?.focus();
+		},
+	}));
 
 	return (
 		<label
