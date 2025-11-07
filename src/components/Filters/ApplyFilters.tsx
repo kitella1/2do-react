@@ -28,7 +28,7 @@ export default function ApplyFilters() {
 	const checkboxes = options.map((option) => (
 		<label
 			key={option}
-			className="text-xs md:text-base md:tracking-wider flex items-center uppercase gap-x-1"
+			className="text-xs md:text-lg md:tracking-wider flex items-center uppercase gap-x-1"
 		>
 			<input type="checkbox" value={option} onChange={filtersChanged} />
 			{option}
@@ -38,7 +38,7 @@ export default function ApplyFilters() {
 	return (
 		<div data-testid="list-item" className="py-4">
 			<h3 className="">Filters</h3>
-			<form className="flex w-full md:flex-row justify-between md:items-end mt-2">
+			<form className="flex w-full md:flex-row justify-between md:justify-start md:gap-x-4 md:items-end mt-2">
 				{checkboxes}
 			</form>
 		</div>

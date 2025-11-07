@@ -23,7 +23,7 @@ function App() {
 
 	return (
 		<>
-			<header className="w-full flex flex-col gap-y-2 h-24 shrink-0">
+			<header className="w-full flex flex-col gap-y-2 h-24 md:h-36 shrink-0">
 				<img
 					data-testid="logo"
 					src={twoDoLogo}
