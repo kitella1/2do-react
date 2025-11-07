@@ -5,7 +5,7 @@ import type { CategoriesInterface } from "../../types/listItems";
 interface ListItemProps {
 	id: string;
 	title: string;
-	isChecked: boolean;
+	isComplete: boolean;
 	category: CategoriesInterface;
 }
 
@@ -13,7 +13,7 @@ export default function ListItem({
 	id,
 	title,
 	category,
-	isChecked,
+	isComplete,
 }: ListItemProps) {
 	const dispatch = useContext(ListDispatchContext);
 
@@ -30,7 +30,7 @@ export default function ListItem({
 			data-testid="list-item"
 			className={`w-full  border rounded-lg p-4 flex flex-col gap-x-2 transition-all duration-200
 			${
-				isChecked
+				isComplete
 					? "bg-emerald-700/10 border-emerald-200/20"
 					: "bg-gray-400/20 border-white/20"
 			}
@@ -45,13 +45,13 @@ export default function ListItem({
 					role="checkbox"
 					id={id}
 					type="checkbox"
-					checked={isChecked}
+					checked={isComplete}
 					onChange={toggleListItem}
 				/>
 				<label
 					data-testid="label"
 					htmlFor={id}
-					className={isChecked ? "line-through" : "no-underline"}
+					className={isComplete ? "line-through" : "no-underline"}
 				>
 					{title}
 				</label>

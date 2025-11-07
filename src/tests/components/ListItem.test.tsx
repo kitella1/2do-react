@@ -4,9 +4,9 @@ import ListItem from "../../components/ListItems/ListItem";
 describe("ListItem.test.tsx", () => {
 	const props = {
 		id: "item-123",
-		text: "Hello world",
+		title: "Hello world",
 		category: "Chore",
-		isChecked: false,
+		isComplete: false,
 	} as const;
 
 	it("renders listitem", () => {
