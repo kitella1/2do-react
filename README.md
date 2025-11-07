@@ -42,9 +42,6 @@ docker run -p 4173:4173 2do
 To run unit tests for this project, run the below command.
 `npm run test:unit`
 
-To run end-to-end tests for this project, run the below command:
-`npm run test:e2e`
-
 ## AI Declaration ✨
 
 No AI was used during any part of the development of 2Do.
