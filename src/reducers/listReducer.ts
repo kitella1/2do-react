@@ -1,12 +1,12 @@
 import type { ListItemInterface } from "../types/listItems";
 
-interface ActionsInterface {
+export interface ActionsInterface {
 	type: "added" | "toggled";
 	[key: string]: any;
 }
 
 export default function listReducer(
-	listItems: any[],
+	listItems: ListItemInterface[],
 	action: ActionsInterface
 ) {
 	switch (action.type) {
@@ -17,8 +17,7 @@ export default function listReducer(
 				content: action.content,
 				isComplete: false,
 			} as ListItemInterface;
-			console.log(listItems, " & ", newItem);
-			return listItems.unshift(newItem);
+			return [{ ...newItem }, ...listItems];
 		}
 		case "toggled": {
 			const itemToComplete = listItems.findIndex(

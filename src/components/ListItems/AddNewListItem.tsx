@@ -1,27 +1,34 @@
-import { useState } from "react";
-import { useAppDispatch } from "../../stores/hooks";
-import { addListItem } from "../../stores/list/listSlice";
+import { useContext, useState } from "react";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
 import Input from "../Input";
+import type { ListItemInterface } from "../../types/listItems";
+import { ListDispatchContext } from "../../reducers/context";
 
 export default function AddNewListItem() {
-	const dispatch = useAppDispatch();
-	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
+	const dispatch = useContext(ListDispatchContext);
 
 	const [title, setTitle] = useState("");
+
+	const options = ["Chore", "DIY", "Wellness", "Hobby", "Other"];
 	const [category, setCategory] = useState(
 		"Chore" as "Chore" | "DIY" | "Wellness" | "Hobby" | "Other"
 	);
 
+	// TODO: Store in localStorage
+	// TODO: check for value on page load
+
 	function submitForm() {
 		const newListItem = {
-			id: `item-${Math.random()}`,
+			id: `item-${Math.random() + 1}`,
 			content: title,
 			category,
 			isComplete: false,
-		};
-		dispatch(addListItem(newListItem));
+		} as ListItemInterface;
+		dispatch({
+			type: "added",
+			...newListItem,
+		});
 		clearForm();
 	}
 
