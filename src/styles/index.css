@@ -3,7 +3,7 @@
 /* 
 	This file is for global styles, and styling that should be shared across elements/components.
 	For example, all h1 tags should look the same.
-	All individual styling should be manage in the component with tailwind.
+	All individual styling should be managed in the component with tailwind.
 */
 
 @theme {
